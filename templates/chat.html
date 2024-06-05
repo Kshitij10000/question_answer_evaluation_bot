@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>AI Interaction System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>AI Interaction System</h1>
+    {% if question %}
+    <h2>AI Question:</h2>
+    <p>{{ question }}</p>
+    <form method="post" action="/record">
+        <button type="submit">Record Response</button>
+    </form>
+    {% endif %}
+    {% if transcription %}
+    <h2>Transcription:</h2>
+    <p>{{ transcription }}</p>
+    {% endif %}
+    {% if analysis %}
+    <h2>Analysis:</h2>
+    <p>{{ analysis }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,82 @@
+# AI Interaction System
+
+## Overview
+The AI Interaction System is a web application that leverages various technologies such as Flask, Google's Speech-to-Text API, OpenAI's GPT-4, and Hugging Face's Transformers to provide an interactive experience for users to ask questions about generative AI. Users can record their responses, which are then transcribed and analyzed for sentiment.
+
+## Architecture
+
+### Components
+1. **Frontend (HTML/CSS)**:
+    - **index.html**: The main landing page with a button to start interaction.
+    - **chat.html**: The chat interface that displays the AI's question, user transcription, and sentiment analysis.
+    - **style.css**: Styling for the web pages.
+
+2. **Backend (Flask)**:
+    - **app.py**: The main Flask application handling routes and logic.
+    - **questions.py**: Contains the `ask_question` function that interacts with OpenAI's GPT-4 to generate questions.
+    - **voice_to_text.py**: Contains functions `record_audio`, `convert_to_mono`, and `transcribe_audio` to handle audio recording and transcription.
+    - **sentiment.py**: Contains the `analyze_response` function that performs sentiment analysis using the Hugging Face Transformers pipeline.
+
+3. **External APIs**:
+    - **Google Cloud Speech-to-Text**: Used for audio transcription.
+    - **OpenAI GPT-4**: Used for generating AI questions.
+    - **Hugging Face Transformers**: Used for sentiment analysis.
+
+### Flow
+1. User visits the landing page and starts the interaction.
+2. The system generates a question using OpenAI GPT-4 and displays it.
+3. User records their response, which is saved as an audio file.
+4. The audio is converted to mono, then transcribed using Google Cloud's Speech-to-Text API.
+5. The transcription is analyzed for sentiment using the Hugging Face Transformers.
+6. The transcription and sentiment analysis results are displayed to the user.
+
+## Requirements
+
+### Dependencies
+To run this project, the following Python packages are required:
+
+
+Flask==2.3.2
+transformers==4.30.2
+sounddevice==0.4.6
+wavio==0.0.7
+google-cloud-speech==2.22.0
+openai==0.27.6
+
+Usage:
+
+Start Interaction: Click the "Start Interaction" button to get a question from the AI.
+Record Response: Click the "Record Response" button to record your answer. The audio will be saved, converted to mono, transcribed, and analyzed for sentiment.
+View Results: The transcription and sentiment analysis results will be displayed on the screen.
+
+Files Structure:
+
+AI-Interaction-System/
+│
+├── templates/
+│   ├── index.html
+│   ├── chat.html
+│
+├── static/
+│   ├── style.css
+│
+├── app.py
+├── questions.py
+├── voice_to_text.py
+├── sentiment.py
+├── requirements.txt
+├── README.md
+
+License:
+
+This project is licensed under the MIT License.
+
+Contact:
+
+For any questions or issues, please open an issue on the GitHub repository or contact.
+Feel free to adjust the content to better fit your project specifics and personal preferences.
+
+
+
+
+
